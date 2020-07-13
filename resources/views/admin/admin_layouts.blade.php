@@ -35,7 +35,15 @@
     <link href="{{ asset('public/backend/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
     <link href="{{ asset('public/backend/lib/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('public/backend/lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
+
+    <!-- Toaster css -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+    <!-- Data table css -->
+    <link href="{{ asset('public/backend/lib/highlightjs/github.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/backend/lib/datatables/jquery.dataTables.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/backend/lib/select2/css/select2.min.css') }}" rel="stylesheet">
+
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/starlight.css') }}">
@@ -65,7 +73,7 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="chart-morris.html" class="nav-link">Category</a></li>
+          <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Category</a></li>
           <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
           <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Brand</a></li>
         </ul>
@@ -353,6 +361,39 @@
     <script src="{{ asset('public/backend/lib/bootstrap/bootstrap.js') }}"></script>
     <script src="{{ asset('public/backend/lib/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('public/backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
+
+    <!-- Data table js -->
+    <script src="{{ asset('public/backend/lib/highlightjs/highlight.pack.js') }}"></script>
+    <script src="{{ asset('public/backend/lib/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('public/backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('public/backend/lib/select2/js/select2.min.js') }}"></script>
+    <script src="../js/starlight.js"></script>
+    <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        $('#datatable2').DataTable({
+          bLengthChange: false,
+          searching: false,
+          responsive: true
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+    </script>
+    
+
     <script src="{{ asset('public/backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('public/backend/lib/d3/d3.js') }}"></script>
     <script src="{{ asset('public/backend/lib/rickshaw/rickshaw.min.js') }}"></script>

@@ -57,8 +57,8 @@
                             </div>
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a href="#">Sign in</a></div>
+                                <div><a href="{{ route('login') }}">Register</a></div>
+                                <div><a href="{{ route('register') }}">Sign in</a></div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <!-- Logo -->
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">OneTech</a></div>
+                            <div class="logo"><a href="{{ url('/') }}">OneTech</a></div>
                         </div>
                     </div>
 
