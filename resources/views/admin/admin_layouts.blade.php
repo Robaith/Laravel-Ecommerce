@@ -134,10 +134,10 @@
           <li class="nav-item"><a href="map-google.html" class="nav-link">Google Maps</a></li>
           <li class="nav-item"><a href="map-vector.html" class="nav-link">Vector Maps</a></li>
         </ul>
-        <a href="mailbox.html" class="sl-menu-link">
+        <a href="{{ route('coupons') }}" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-            <span class="menu-item-label">Mailbox</span>
+            <span class="menu-item-label">Coupon</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">

@@ -433,6 +433,7 @@ class ComposerStaticInite3bae772c4b322f01cd1c02f89ef47e9
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Model\\Admin\\Brand' => __DIR__ . '/../..' . '/app/Model/Admin/Brand.php',
         'App\\Model\\Admin\\Category' => __DIR__ . '/../..' . '/app/Model/Admin/Category.php',
+        'App\\Model\\Admin\\Coupon' => __DIR__ . '/../..' . '/app/Model/Admin/Coupon.php',
         'App\\Model\\Admin\\Subcategory' => __DIR__ . '/../..' . '/app/Model/Admin/Subcategory.php',
         'App\\Notifications\\AdminPasswordResetNotification' => __DIR__ . '/../..' . '/app/Notifications/AdminPasswordResetNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

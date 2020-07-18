@@ -34,6 +34,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Model\\Admin\\Brand' => $baseDir . '/app/Model/Admin/Brand.php',
     'App\\Model\\Admin\\Category' => $baseDir . '/app/Model/Admin/Category.php',
+    'App\\Model\\Admin\\Coupon' => $baseDir . '/app/Model/Admin/Coupon.php',
     'App\\Model\\Admin\\Subcategory' => $baseDir . '/app/Model/Admin/Subcategory.php',
     'App\\Notifications\\AdminPasswordResetNotification' => $baseDir . '/app/Notifications/AdminPasswordResetNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
