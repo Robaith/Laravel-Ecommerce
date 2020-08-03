@@ -52,3 +52,19 @@ Route::post('admin/coupon/store', 'Admin\CouponController@store')->name('store.c
 Route::get('admin/coupon/delete/{id}', 'Admin\CouponController@destroy')->name('destroy.coupon');
 Route::get('admin/coupon/edit/{id}', 'Admin\CouponController@edit')->name('edit.coupon');
 Route::post('admin/coupon/update/{id}', 'Admin\CouponController@update')->name('update.coupon');
+
+//Product routes :
+Route::get('admin/products', 'Admin\ProductController@index')->name('products');
+Route::get('admin/product/create', 'Admin\ProductController@create')->name('product.create');
+Route::post('admin/product/store', 'Admin\ProductController@store')->name('store.product');
+Route::get('admin/product/show/{id}', 'Admin\ProductController@show')->name('show.product');
+Route::get('admin/product/delete/{id}', 'Admin\ProductController@destroy')->name('destroy.product');
+Route::get('admin/product/edit/{id}', 'Admin\ProductController@edit')->name('edit.product');
+Route::post('admin/product/update/{id}', 'Admin\ProductController@update')->name('update.product');
+Route::post('admin/product/update-photo/{id}', 'Admin\ProductController@updatePhoto')->name('update.product.photo');
+
+Route::get('product/inactive/{id}', 'Admin\ProductController@inactive');
+Route::get('product/active/{id}', 'Admin\ProductController@active');
+
+// For Showing Sub category with ajax
+Route::get('get/subcategory/{category_id}', 'Admin\ProductController@getSubCat');
