@@ -8,11 +8,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        
+
                         <div class="main_nav_content d-flex flex-row">
 
                             <!-- Categories Menu -->
-
                             <div class="cat_menu_container">
                                 <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                                     <div class="cat_burger"><span></span><span></span><span></span></div>
@@ -20,7 +19,7 @@
                                 </div>
 
                                 <ul class="cat_menu">
-                                    
+
                                     @foreach($category as $cat)
                                     <li class="hassubs">
                                         <a href="#">{{ $cat->category_name }}<i class="fas fa-chevron-right"></i></a>
@@ -33,14 +32,14 @@
                                             @foreach($subcategory as $row)
                                             <li class="hassubs">
                                                 <a href="{{ url('products/'.$row->id) }}">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
-                                                
+
                                             </li>
                                             @endforeach
-                                            
+
                                         </ul>
                                     </li>
                                     @endforeach
-                                    
+
                                 </ul>
                             </div>
 
@@ -121,9 +120,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        
+
                         <div class="page_menu_content">
-                            
+
                             <div class="page_menu_search">
                                 <form action="#">
                                     <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
