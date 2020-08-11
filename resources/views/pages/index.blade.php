@@ -225,9 +225,11 @@ $mid_slider = DB::table('products')
      </div>
 
 
-     <button class="addwishlist" data-id="{{ $row->id }}" >
-        <div class="product_fav"><i class="fas fa-heart"></i></div>
-    </button>
+        <a href="{{route('add.wishlist', $row->id)}}">
+          <div class="product_fav"><i class="fas fa-heart"></i></div>
+        </a>
+        
+    
 
 
     <ul class="product_marks">

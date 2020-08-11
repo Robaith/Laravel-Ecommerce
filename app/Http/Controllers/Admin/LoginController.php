@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesAdmins;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -19,7 +19,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesAdmins;
 
     /**
      * Where to redirect users after login.
@@ -40,12 +40,9 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-         if (Auth::id()) {
-             return view('admin.home');
-         }else{
+         
             return view('admin.auth.login');
-         }
-        
+         
     }
 
     protected function guard()

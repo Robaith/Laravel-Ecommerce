@@ -68,3 +68,6 @@ Route::get('product/active/{id}', 'Admin\ProductController@active');
 
 // For Showing Sub category with ajax
 Route::get('get/subcategory/{category_id}', 'Admin\ProductController@getSubCat');
+
+//Wishlist route
+Route::get('add/wishlist/{id}', 'WishlistController@addWishlist')->name('add.wishlist');
