@@ -70,4 +70,4 @@ Route::get('product/active/{id}', 'Admin\ProductController@active');
 Route::get('get/subcategory/{category_id}', 'Admin\ProductController@getSubCat');
 
 //Wishlist route
-Route::get('add/wishlist/{id}', 'WishlistController@addWishlist')->name('add.wishlist');
+Route::get('add/wishlist/{id}', 'WishlistController@addWishlist');
