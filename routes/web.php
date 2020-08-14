@@ -71,3 +71,7 @@ Route::get('get/subcategory/{category_id}', 'Admin\ProductController@getSubCat')
 
 //Wishlist route
 Route::get('add/wishlist/{id}', 'WishlistController@addWishlist');
+
+// Add to Cart Route 
+Route::get('add/cart/{id}', 'CartController@AddToCart');
+Route::get('check', 'CartController@check');

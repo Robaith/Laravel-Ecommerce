@@ -220,7 +220,7 @@ $mid_slider = DB::table('products')
 
             <div class="product_extras">
 
-             <button id="{{ $row->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)">Add to Cart</button>
+             <button data-id="{{ $row->id }}" class="product_cart_button addcart">Add to Cart</button>
          </div>
      </div>
 
@@ -1821,6 +1821,56 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
         if (id) {
             $.ajax({
                 url: " {{ url('add/wishlist/') }}/"+id,
+                type:"GET",
+                datType:"json",
+                success:function(data){
+             const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+             if ($.isEmptyObject(data.error)) {
+
+                Toast.fire({
+                  icon: 'success',
+                  title: data.success
+                })
+             }else{
+                 Toast.fire({
+                  icon: 'error',
+                  title: data.error
+                })
+             }
+ 
+
+                },
+            });
+
+        }else{
+            alert('danger');
+        }
+     });
+
+   });
+
+
+</script>
+
+<script type="text/javascript">
+    
+   $(document).ready(function(){
+     $('.addcart').on('click', function(){
+        var id = $(this).data('id');
+        if (id) {
+            $.ajax({
+                url: " {{ url('add/cart/') }}/"+id,
                 type:"GET",
                 datType:"json",
                 success:function(data){
