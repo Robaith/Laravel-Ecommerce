@@ -198,7 +198,7 @@ $mid_slider = DB::table('products')
                                 <div class="featured_slider_item">
                                     <div class="border_active"></div>
                                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset( $row->image_one )}}" alt="" style="height: 120px; width: 100px;"></div>
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{ route('product.details', $row->id) }}"><img src="{{ asset( $row->image_one )}}" alt="" style="height: 120px; width: 100px;"></a></div>
                                         <div class="product_content">
 
                                           @if($row->discount_price == NULL)
