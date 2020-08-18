@@ -73,8 +73,10 @@ Route::get('get/subcategory/{category_id}', 'Admin\ProductController@getSubCat')
 Route::get('add/wishlist/{id}', 'WishlistController@addWishlist');
 
 // Add to Cart Route 
-Route::get('add/cart/{id}', 'CartController@AddToCart');
+Route::get('add/cart/{id}', 'CartController@AddToCart'); //add to cart from index page via ajax.
 Route::get('check', 'CartController@check');
+Route::get('mycart', 'CartController@ShowCart')->name('show.cart');
 
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
+Route::post('product/add-to-cart/{id}', 'ProductController@AddToCart')->name('product.add.cart');

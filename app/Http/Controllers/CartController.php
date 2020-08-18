@@ -47,5 +47,10 @@ class CartController extends Controller
     	return response()->json($content);
     }
 
+    public function ShowCart(){
+    	$cart = Cart::content();
+    	return view('pages.cart',compact('cart'));
+    }
+
 	
 }
