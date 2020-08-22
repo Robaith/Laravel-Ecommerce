@@ -43,14 +43,26 @@ class CartController extends Controller
 	}
 
 	public function check(){
-    	$content = Cart::content();
-    	return response()->json($content);
-    }
+		$content = Cart::content();
+		return response()->json($content);
+	}
 
-    public function ShowCart(){
-    	$cart = Cart::content();
-    	return view('pages.cart',compact('cart'));
-    }
+	public function ShowCart(){
+		$cart = Cart::content();
+		return view('pages.cart',compact('cart'));
+	}
+
+
+	public function removeCart($rowId){
+		Cart::remove($rowId);
+		$notification=array(
+			'messege'=>'Product Remove form Cart',
+			'alert-type'=>'success'
+		);
+		return Redirect()->back()->with($notification);
+
+	}
+
 
 	
 }
