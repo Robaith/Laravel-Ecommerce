@@ -63,6 +63,19 @@ class CartController extends Controller
 
 	}
 
+	public function UpdateCart(Request $request){
+
+    	$rowId = $request->productid;
+    	$qty = $request->qty;
+    	Cart::update($rowId,$qty);
+    	$notification=array(
+                        'messege'=>'Product Quantity Updated',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->back()->with($notification);
+
+    }
+
 
 	
 }
