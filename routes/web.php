@@ -79,6 +79,8 @@ Route::get('mycart', 'CartController@ShowCart')->name('show.cart');
 Route::get('mycart/remove/{rowId}', 'CartController@removeCart')->name('remove.cart');
 Route::post('mycart/update', 'CartController@UpdateCart')->name('update.cartitem');
 
+Route::get('/cart/product/view/{id}', 'CartController@ViewProduct');
+
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
 Route::post('product/add-to-cart/{id}', 'ProductController@AddToCart')->name('product.add.cart');

@@ -65,16 +65,41 @@ class CartController extends Controller
 
 	public function UpdateCart(Request $request){
 
-    	$rowId = $request->productid;
-    	$qty = $request->qty;
-    	Cart::update($rowId,$qty);
-    	$notification=array(
-                        'messege'=>'Product Quantity Updated',
-                        'alert-type'=>'success'
-                         );
-                       return Redirect()->back()->with($notification);
+		$rowId = $request->productid;
+		$qty = $request->qty;
+		Cart::update($rowId,$qty);
+		$notification=array(
+			'messege'=>'Product Quantity Updated',
+			'alert-type'=>'success'
+		);
+		return Redirect()->back()->with($notification);
 
-    }
+	}
+
+	public function ViewProduct($id){
+		$product = DB::table('products')
+		->join('categories','products.category_id','categories.id')
+		->join('subcategories','products.subcategory_id','subcategories.id')
+		->join('brands','products.brand_id','brands.id')
+		->select('products.*','categories.category_name','subcategories.subcategory_name','brands.brand_name')
+		->where('products.id',$id)
+		->first();
+
+		$color = $product->product_color;
+		$product_color = explode(',', $color);
+		
+		$size = $product->product_size;
+		$product_size = explode(',', $size);	
+
+		return response::json(array(
+			'product' => $product,
+			'color' => $product_color,
+			'size' => $product_size,
+		));
+
+
+	}
+
 
 
 	
