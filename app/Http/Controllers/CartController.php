@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Cart;
+use Response;
+use Auth;
+use Session;
 
 class CartController extends Controller
 {
@@ -97,6 +100,51 @@ class CartController extends Controller
 			'size' => $product_size,
 		));
 
+
+	}
+
+	public function insertCart(Request $request){
+		$id = $request->product_id;
+		$product = DB::table('products')->where('id',$id)->first();
+		$color = $request->color;
+		$size = $request->size;
+		$qty = $request->qty;
+
+		$data = array();
+		
+		if ($product->discount_price == NULL) {
+			$data['id'] = $product->id;
+			$data['name'] = $product->product_name;
+			$data['qty'] = $request->qty;
+			$data['price'] = $product->selling_price;
+			$data['weight'] = 1;
+			$data['options']['image'] = $product->image_one;
+			$data['options']['color'] = $request->color;
+			$data['options']['size'] = $request->size;
+			Cart::add($data);
+			$notification=array(
+				'messege'=>'Product Added Successfully',
+				'alert-type'=>'success'
+			);
+			return Redirect()->back()->with($notification);
+		}else{
+
+			$data['id'] = $product->id;
+			$data['name'] = $product->product_name;
+			$data['qty'] = $request->qty;
+			$data['price'] = $product->discount_price;
+			$data['weight'] = 1;
+			$data['options']['image'] = $product->image_one;
+			$data['options']['color'] = $request->color;
+			$data['options']['size'] = $request->size;
+			Cart::add($data);
+			$notification=array(
+				'messege'=>'Product Added Successfully',
+				'alert-type'=>'success'
+			);
+			return Redirect()->back()->with($notification);
+
+		} 
 
 	}
 

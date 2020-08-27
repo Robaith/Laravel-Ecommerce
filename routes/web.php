@@ -80,6 +80,7 @@ Route::get('mycart/remove/{rowId}', 'CartController@removeCart')->name('remove.c
 Route::post('mycart/update', 'CartController@UpdateCart')->name('update.cartitem');
 
 Route::get('/cart/product/view/{id}', 'CartController@ViewProduct');
+Route::post('insert/into/cart/', 'CartController@insertCart')->name('insert.into.cart');
 
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
