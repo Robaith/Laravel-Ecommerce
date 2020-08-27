@@ -82,6 +82,9 @@ Route::post('mycart/update', 'CartController@UpdateCart')->name('update.cartitem
 Route::get('/cart/product/view/{id}', 'CartController@ViewProduct');
 Route::post('insert/into/cart/', 'CartController@insertCart')->name('insert.into.cart');
 
+Route::get('checkout/', 'CartController@Checkout')->name('user.checkout');
+
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
 Route::post('product/add-to-cart/{id}', 'ProductController@AddToCart')->name('product.add.cart');
+
