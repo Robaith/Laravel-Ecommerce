@@ -83,6 +83,7 @@ Route::get('/cart/product/view/{id}', 'CartController@ViewProduct');
 Route::post('insert/into/cart/', 'CartController@insertCart')->name('insert.into.cart');
 
 Route::get('checkout/', 'CartController@Checkout')->name('user.checkout');
+Route::get('wishlist', 'CartController@wishlist')->name('user.wishlist');
 
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
