@@ -176,6 +176,43 @@ class CartController extends Controller
 		
 	}
 
+	public function Coupon(Request $request){
+		$coupon = $request->coupon;
+
+		$check = DB::table('coupons')->where('coupon_name',$coupon)->first();
+		if ($check) {
+			Session::put('coupon',[
+				'name' => $check->coupon_name,
+				'discount' => $check->coupon_value,
+				'balance' => Cart::Subtotal()-$check->coupon_value 
+			]);
+			$notification=array(
+				'messege'=>'Successfully Coupon Applied',
+				'alert-type'=>'success'
+			);
+			return Redirect()->back()->with($notification);
+
+
+		}else{
+			$notification=array(
+				'messege'=>'Invalid Coupon',
+				'alert-type'=>'success'
+			);
+			return Redirect()->back()->with($notification);
+		}
+
+	}
+
+	public function CouponRemove(){
+		Session::forget('coupon');
+		$notification=array(
+			'messege'=>'Coupon remove Successfully',
+			'alert-type'=>'success'
+		);
+		return Redirect()->back()->with($notification);
+
+	}
+
 
 
 	

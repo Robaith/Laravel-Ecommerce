@@ -85,6 +85,9 @@ Route::post('insert/into/cart/', 'CartController@insertCart')->name('insert.into
 Route::get('checkout/', 'CartController@Checkout')->name('user.checkout');
 Route::get('wishlist', 'CartController@wishlist')->name('user.wishlist');
 
+Route::post('apply/coupon/', 'CartController@Coupon')->name('apply.coupon');
+Route::get('remove/coupon', 'CartController@CouponRemove')->name('remove.coupon');
+
 //product details route
 Route::get('product/{id}', 'ProductController@ShowDetails')->name('product.details');
 Route::post('product/add-to-cart/{id}', 'ProductController@AddToCart')->name('product.add.cart');
