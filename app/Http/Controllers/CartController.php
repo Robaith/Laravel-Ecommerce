@@ -213,6 +213,14 @@ class CartController extends Controller
 
 	}
 
+	public function PaymentPage(){
+		
+		$cart = Cart::Content();
+		return view('pages.payment',compact('cart'));
+
+	}
+
+
 
 
 	
